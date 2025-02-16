@@ -173,3 +173,147 @@ You should see:
 ```
 **Hello, World!**
 ```
+Below is a step-by-step guide on how to use Docker, complete with headings and explanations for each step.
+
+---
+
+## 1. Install Docker
+
+- **What to Do:**  
+  - Download and install Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop).
+  - Follow the installation instructions for your operating system.
+  
+- **Why:**  
+  - Docker Desktop provides all the tools needed to build and run containers on your local machine.
+
+---
+
+## 2. Verify Docker Installation
+
+- **What to Do:**  
+  - Open your terminal or Command Prompt.
+  - Run the command:
+    ```bash
+    docker --version
+    ```
+  
+- **Why:**  
+  - This command checks that Docker is installed correctly and displays the installed version.
+
+---
+
+## 3. Run Docker's Hello World Container
+
+- **What to Do:**  
+  - In your terminal, run:
+    ```bash
+    docker run hello-world
+    ```
+  
+- **Why:**  
+  - This command runs a pre-built Docker container that prints "Hello from Docker!" to confirm that Docker is working properly.
+  - If the image isn’t available locally, Docker will download it from Docker Hub.
+
+---
+
+## 4. Create a Custom Dockerfile
+
+### 4.1. Set Up Your Project Directory
+
+- **What to Do:**  
+  - Create a new directory for your project and navigate into it:
+    ```bash
+    mkdir hello-docker
+    cd hello-docker
+    ```
+  
+- **Why:**  
+  - This keeps your project files organized and separates them from other projects.
+
+### 4.2. Create the Dockerfile
+
+- **What to Do:**  
+  - Open a text editor and create a file named `Dockerfile` (with no file extension).
+  - Add the following content:
+    ```dockerfile
+    # Use a minimal base image
+    FROM alpine:latest
+
+    # Command to execute when the container runs
+    CMD ["echo", "Hello, World!"]
+    ```
+  - Save the file in your `hello-docker` directory.
+
+- **Why:**  
+  - The Dockerfile contains instructions for Docker to build a custom image. In this example, it tells Docker to use the lightweight Alpine Linux image and run a command that prints "Hello, World!".
+
+---
+
+## 5. Build the Docker Image
+
+- **What to Do:**  
+  - Ensure you are in the directory containing your Dockerfile:
+    ```bash
+    cd path/to/hello-docker
+    ```
+  - Build your Docker image with:
+    ```bash
+    docker build -t my-hello-world .
+    ```
+  
+- **Explanation:**
+  - `docker build` tells Docker to create an image.
+  - `-t my-hello-world` tags the image with the name "my-hello-world".
+  - The `.` (dot) specifies the current directory as the build context (i.e., where the Dockerfile is located).
+
+- **Why:**  
+  - Building the image converts the instructions in your Dockerfile into a runnable Docker image.
+
+---
+
+## 6. Run Your Docker Container
+
+- **What to Do:**  
+  - Once the image is built, run a container using:
+    ```bash
+    docker run my-hello-world
+    ```
+  
+- **Why:**  
+  - This command creates a container from your image and runs it.  
+  - According to the Dockerfile, the container will execute `echo "Hello, World!"` and print the message.
+
+---
+
+## 7. Troubleshooting Common Errors
+
+### 7.1. Error: "no such file or directory"
+
+- **Cause:**  
+  - Docker couldn’t find the Dockerfile because it might be misnamed (e.g., `Dockerfile.txt`).
+  
+- **Solution:**  
+  - Rename your file to exactly `Dockerfile` (with no extension).
+
+### 7.2. Error: "failed to read dockerfile: is a directory"
+
+- **Cause:**  
+  - This error can occur if a directory exists with the name `Dockerfile` instead of a file.
+  
+- **Solution:**  
+  - Ensure that `Dockerfile` is a text file, not a directory. Use your file explorer or terminal commands to verify.
+
+---
+
+## 8. Summary
+
+- **Install Docker Desktop** and verify the installation.
+- **Run the Hello World container** to test Docker.
+- **Create a project directory and Dockerfile** to define your custom image.
+- **Build your image** using the `docker build` command.
+- **Run your container** using the `docker run` command.
+- **Troubleshoot** common issues related to file naming and directory structure.
+
+---
+
+By following these steps, you can start using Docker to containerize your applications and run them easily on any system. If you have any questions or run into issues, feel free to ask for further help!
