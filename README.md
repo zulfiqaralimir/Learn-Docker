@@ -1,8 +1,6 @@
 # Learn-Docker
 One of the simplest ways to see Docker in action
-Getting started with Docker is fun and straightforward! One of the simplest ways to see Docker in action is by running the built-in "hello-world" image. 
-
-Here’s how you can do it:
+One of the simplest ways to see Docker in action is by running the built-in "hello-world" image. 
 
 1. **Install Docker:**  
    Make sure you have Docker installed on your machine. If you haven’t installed it yet, download Docker Desktop from [docker.com](https://www.docker.com/products/docker-desktop) and follow the installation instructions for your operating system.
